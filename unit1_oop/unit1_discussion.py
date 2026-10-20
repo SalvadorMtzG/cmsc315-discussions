@@ -82,8 +82,8 @@ def demonstrate_namespaces():
     car1 = GasolineCar("Ford", "Explorer", 20, 18.6)
     car2 = GasolineCar("GMC", "Sierra", 14, 34)
 
-    print(GasolineCar.wheels)
-    print(car1.wheels)
+    print("Wheels variable through class: ", GasolineCar.wheels)
+    print("Wheels variable through object: ", car1.wheels)
 
     car2.color = "White"
 
@@ -107,6 +107,24 @@ def demonstrate_copying():
     print("\n=== Copy Demonstration ===")
     print("TODO: Implement shallow copy and deep copy demonstration")
 
+    car3 = GasolineCar("Dodge", "Charger", 17, 17.5)
+    car3.engines = ["v4", "v6", "v8"]
+
+    shallow_copy = copy(car3)
+    deep_copy = deepcopy(car3)
+
+    print("Original list: ", car3.engines)
+    car3.engines[0] = "v10"
+
+    print("The element in the shallow copy changes when it is modified in the original object")
+    print("Change made: car3.engines[0] = 'v10'")
+    print("Original list: ", car3.engines)
+    print("Shallow copy: ", shallow_copy.engines)
+
+    print("The deep copy remained unaffected by the change in the original object")
+    print("Deep copy: ", deep_copy.engines)
+
+    #Shallow copies still reference the original nested objects while Deep copies create independent copies
 
 # TODO 5:
 # Complete the main function.
@@ -126,8 +144,8 @@ def main():
     print(vehicle.get_info())
 
     print("\nTODO: Create and test your child object")
-    car3 = GasolineCar("Mitsubishi", "Eclipse", 23, 16.9)
-    print(car3.get_info())
+    car4 = GasolineCar("Mitsubishi", "Eclipse", 23, 16.9)
+    print(car4.get_info())
 
     demonstrate_namespaces()
     demonstrate_copying()
