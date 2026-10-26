@@ -67,7 +67,7 @@ class Queue:
         if self.is_empty():
             print("Empty queue. Unable to deque")
             return None
-        return self.items.pop()
+        return self.items.popleft()
 
     def front(self):
         # TODO (Student): Return the front value without removing it.
@@ -140,7 +140,11 @@ def main():
     queue1.enqueue("Monterrey")
     queue1.enqueue("Bayern")
     queue1.enqueue("Inter")
-
+    print(f"Queue: {queue1.items}")
+    print(f"Front: {queue1.front()}")
+    print("Dequeing items")
+    while not queue1.is_empty():
+        print(f"Dequeued: {queue1.dequeue()}")
 
 
 if __name__ == "__main__":
