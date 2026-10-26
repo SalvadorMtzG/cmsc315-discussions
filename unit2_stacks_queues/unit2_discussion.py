@@ -103,13 +103,9 @@ def main():
     # 4. Demonstrate LIFO behavior.
     print(f"Stack: {stack1.items}")
     print(f"Top element(peek): {stack1.peek()}")
-    print(f"Popped: {stack1.pop()}")
-    print(f"Stack: {stack1.items}")
-    print(f"Popped: {stack1.pop()}")
-    print(f"Stack: {stack1.items}")
-    print(f"Popped: {stack1.pop()}")
-    print(f"Stack: {stack1.items}")
-    print(f"Popped: {stack1.pop()}")
+    while not stack1.is_empty():
+        print(f"Popped: {stack1.pop()}")
+        print(f"Stack: {stack1.items}")
 
     # 5. Show what happens when pop() is used on an empty stack.
     print(f"Using pop() on an empty stack: {stack1.pop()}")
