@@ -65,16 +65,14 @@ class Queue:
         # TODO (Student): Remove and return the value from the front of the queue.
         # Explain or improve empty-queue handling.
         if self.is_empty():
-            print("Empty queue. Unable to deque")
-            return None
+            return "Empty queue. Unable to deque"
         return self.items.popleft()
 
     def front(self):
         # TODO (Student): Return the front value without removing it.
         # Add a comment explaining what front returns.
         if self.is_empty():
-            print("Empty queue.")
-            return None
+            return "Empty queue."
         return self.items[0]
 
     def is_empty(self):
@@ -90,6 +88,7 @@ def main():
     # ===============================
     # Requirements & edge Cases:
 
+    print("STACK")
     # 1. Create a Stack object.
     stack1 = Stack()
 
@@ -119,32 +118,44 @@ def main():
     stack2.push(7)
     print(f"Pushed 7. Stack: {stack2.items}")
     stack2.pop()
-    print(f"Popped item. Is it empty? {stack2.is_empty()}")
+    print(f"Popped item. Is it empty? {stack2.is_empty()}\n")
 
     # ===============================
     # TODO (Student): QUEUE DEMO
     # ===============================
-    # Requirements:
+    # Requirements & edge Cases:
+
+    print("QUEUE")
     # 1. Create a Queue object.
-    # 2. Add at least 4 values to the queue.
-    # 3. Improve the print statements so they clearly explain what is happening.
-    # 4. Demonstrate FIFO behavior.
-    # 5. Show what happens when dequeue() is used on an empty queue.
-    #
-    # Edge Cases:
-    # 6. Show what happens when front() is used on an empty queue.
-    # 7. Create a queue with only one item, remove it,
-    #    and verify the queue is empty afterward.
     queue1 = Queue()
+
+    # 2. Add at least 4 values to the queue.
     queue1.enqueue("Chelsea")
     queue1.enqueue("Monterrey")
     queue1.enqueue("Bayern")
     queue1.enqueue("Inter")
+
+    # 3. Improve the print statements so they clearly explain what is happening.
+    # 4. Demonstrate FIFO behavior.
     print(f"Queue: {queue1.items}")
     print(f"Front: {queue1.front()}")
     print("Dequeing items")
     while not queue1.is_empty():
         print(f"Dequeued: {queue1.dequeue()}")
+
+    # 5. Show what happens when dequeue() is used on an empty queue.
+    print(f"Dequeing empty queue: {queue1.dequeue()}")
+
+    # 6. Show what happens when front() is used on an empty queue.
+    print(f"Using front on an empty queue: {queue1.front()}")
+
+    # 7. Create a queue with only one item, remove it,
+    #    and verify the queue is empty afterward.
+    queue2 = Queue()
+    queue2.enqueue("Shalke")
+    print(f"Created queue 2, added Shalke to it. Queue: {queue2.items}")
+    queue2.dequeue()
+    print(f"Dequeued item. Is it empty? {queue2.is_empty()}")
 
 
 if __name__ == "__main__":
