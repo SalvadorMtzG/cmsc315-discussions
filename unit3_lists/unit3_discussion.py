@@ -8,7 +8,9 @@ This assignment focuses on understanding how lists behave when elements
 are inserted, removed, and searched. You will analyze how Python lists
 shift elements in memory and how different operations impact performance.
 """
+from enum import nonmember
 
+lst = [0,1,2,3,4,5]
 
 def insert_at(lst, index, value):
     """
@@ -22,7 +24,7 @@ def insert_at(lst, index, value):
     - Use comments to explain how insertion performance may vary depending on
       where the insertion occurs.
     """
-    pass
+    lst.insert(index, value)
 
 
 def delete_at(lst, index):
@@ -36,7 +38,10 @@ def delete_at(lst, index):
     - Return None if the index is invalid.
     - Add comments explaining why index validation and safe deletion are important.
     """
-    pass
+    if index > lst.length() | index < 0:
+        return None
+    else:
+        return lst.pop(index)
 
 
 def search_value(lst, value):
@@ -49,7 +54,10 @@ def search_value(lst, value):
     - Return -1 if the value is not found.
     - Add comments explaining why this is a linear search and why it scans sequentially.
     """
-    pass
+    for i in lst:
+        if lst.get(i) == value:
+            return i
+    return -1
 
 
 def main():
@@ -68,6 +76,15 @@ def main():
     #    - the end
     # 4. Display the list after each insertion.
     # 5. Use comments to explain each step in the implementation.
+    list1 = [1,2,3,4,5]
+    print(f"Original list: {list1}")
+    insert_at(list1, 0, 10)
+    print(f"'10' inserted at the beginning: {list1}")
+    insert_at(list1, 2, 9)
+    print(f"'9' inserted in the middle: {list1}")
+    insert_at(list1, 8, 8)
+    print(f"'8' inserted {list1}")
+
 
     print("\n=== INSERTION TESTS ===")
     print("TODO: Create a list and demonstrate insertions.")
