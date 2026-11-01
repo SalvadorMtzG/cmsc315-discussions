@@ -38,9 +38,11 @@ def delete_at(lst, index):
     - Return None if the index is invalid.
     - Add comments explaining why index validation and safe deletion are important.
     """
-    if index > lst.length() | index < 0:
+    if index >= len(lst) or index < 0:
+        print("Invalid index")
         return None
     else:
+        print(f"Item {index} removed")
         return lst.pop(index)
 
 
@@ -54,9 +56,12 @@ def search_value(lst, value):
     - Return -1 if the value is not found.
     - Add comments explaining why this is a linear search and why it scans sequentially.
     """
-    for i in lst:
-        if lst.get(i) == value:
+    i = 0
+    while i < len(lst):
+        if lst[i] == value:
             return i
+        i+=1
+    print("Value not found")
     return -1
 
 
@@ -104,6 +109,13 @@ def main():
 
     print("\n=== DELETION TESTS ===")
     print("TODO: Demonstrate deletions from multiple positions.")
+    print(f"Original list: {list1}")
+    delete_at(list1, 0)
+    print(f"Deleted from beginning: {list1}")
+    delete_at(list1, 1)
+    print(f"Deleted from the middle: {list1}")
+    delete_at(list1, 5)
+    print(f"Deleted from end: {list1}")
 
     # ===============================
     # TODO (Student): SEARCH TESTS
@@ -117,6 +129,9 @@ def main():
 
     print("\n=== SEARCH TESTS ===")
     print("TODO: Demonstrate searching for values.")
+    print(f"Original list: {list1}")
+    print(f"Searching '1', is in index: {search_value(list1, 1)}")
+    print(f"Searching '10', is in index: {search_value(list1, 10)}")
 
     # ===============================
     # TODO (Student): EDGE CASES
@@ -133,6 +148,9 @@ def main():
 
     print("\n=== EDGE CASES ===")
     print("TODO: Demonstrate at least two edge cases.")
+    print(f"Original list: {list1}")
+    delete_at(list1, 10)
+    search_value(list1, 10)
 
 
 
