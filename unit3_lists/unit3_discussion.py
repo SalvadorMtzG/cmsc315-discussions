@@ -24,6 +24,8 @@ def insert_at(lst, index, value):
     - Use comments to explain how insertion performance may vary depending on
       where the insertion occurs.
     """
+    # Inserting an element at the beginning or middle of a list causes all elements to the right to shift (O(n))
+    # Inserting an element at the end does not affect the elements in the list (O(1)
     lst.insert(index, value)
 
 
@@ -38,6 +40,7 @@ def delete_at(lst, index):
     - Return None if the index is invalid.
     - Add comments explaining why index validation and safe deletion are important.
     """
+    #Index validation and safe deletion are important to avoid exceptions and program crashes
     if index >= len(lst) or index < 0:
         print("Invalid index")
         return None
@@ -56,6 +59,7 @@ def search_value(lst, value):
     - Return -1 if the value is not found.
     - Add comments explaining why this is a linear search and why it scans sequentially.
     """
+    #This is a linear search because it checks elemnts one by one until the value is found or the whole list is checked
     i = 0
     while i < len(lst):
         if lst[i] == value:
@@ -87,8 +91,8 @@ def main():
     print(f"'10' inserted at the beginning: {list1}")
     insert_at(list1, 2, 9)
     print(f"'9' inserted in the middle: {list1}")
-    insert_at(list1, 8, 8)
-    print(f"'8' inserted {list1}")
+    insert_at(list1, len(list1), 8)
+    print(f"'8' inserted at the end: {list1}")
 
 
     print("\n=== INSERTION TESTS ===")
@@ -114,7 +118,7 @@ def main():
     print(f"Deleted from beginning: {list1}")
     delete_at(list1, 1)
     print(f"Deleted from the middle: {list1}")
-    delete_at(list1, 5)
+    delete_at(list1, len(list1) - 1)
     print(f"Deleted from end: {list1}")
 
     # ===============================
@@ -149,7 +153,9 @@ def main():
     print("\n=== EDGE CASES ===")
     print("TODO: Demonstrate at least two edge cases.")
     print(f"Original list: {list1}")
+    #Deleting an invalid index
     delete_at(list1, 10)
+    #Searching a missing value
     search_value(list1, 10)
 
 
