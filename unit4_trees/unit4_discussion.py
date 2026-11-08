@@ -159,6 +159,9 @@ def main():
     # 4. Display the values inserted.
     # 5. Use comments to explain why a BST is efficient at reducing search space for each step.
 
+    print("\n=== TREE CONSTRUCTION ===")
+    print("TODO: Create a BST and insert multiple values.")
+
     print("Employee ID system")
     id_tree = BST()
 
@@ -168,10 +171,7 @@ def main():
         print(f"Inserted employee with ID: {id}")
 
 
-    print("\n=== TREE CONSTRUCTION ===")
-    print("TODO: Create a BST and insert multiple values.")
-
-    # ===============================
+# ===============================
     # TODO (Student): IN-ORDER TRAVERSAL
     # ===============================
     #
