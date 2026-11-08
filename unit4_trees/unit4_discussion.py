@@ -173,6 +173,10 @@ def main():
 
     print("\n=== SEARCH TESTS ===")
     print("TODO: Demonstrate BST searching.")
+    print(f"Search for '50' (Exists): {id_tree.search(50)}")
+    print(f"Search for '80' (Exists): {id_tree.search(80)}")
+    print(f"Search for '5' (Doesn't exist): {id_tree.search(5)}")
+    print(f"Search for '95' (Doesn't exist): {id_tree.search(95)}")
 
     # ===============================
     # TODO (Student): EDGE CASES
