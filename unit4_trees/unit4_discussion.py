@@ -194,6 +194,9 @@ def main():
 
     print("\n=== EDGE CASES ===")
     print("TODO: Demonstrate and explain an edge case.")
+    empty_tree = BST()
+    print(f"Traversing an empty tree: {empty_tree.inorder()}")
+    print(f"Searching in an empty tree: {empty_tree.search(10)}")
 
 
 
