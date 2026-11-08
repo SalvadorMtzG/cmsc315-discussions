@@ -10,6 +10,7 @@ Binary Search Tree (BST).
 You will complete and modify the provided code while explaining
 key concepts in your own words using comments and output.
 """
+from signal import valid_signals
 
 
 class Node:
@@ -73,14 +74,22 @@ class BST:
         - Add comments explaining why BST search is often
           more efficient than linear search.
         """
-        pass
+        return self._search_recursive(self.root, value)
 
     def _search_recursive(self, node, value):
         """
         TODO (Student):
         Implement recursive BST search.
         """
-        pass
+        if node is None:
+            return False
+        elif node.value == value:
+            return True
+
+        if value < node.value:
+            return self._search_recursive(node.leftChild, value)
+        else:
+            return self._search_recursive(node.rightChild, value)
 
     def inorder(self):
         """
@@ -88,7 +97,9 @@ class BST:
         Return a list containing the values from an
         in-order traversal.
         """
-        pass
+        ids = []
+        self._inorder_recursive(self.root, ids)
+        return ids
 
     def _inorder_recursive(self, node, values):
         """
@@ -102,7 +113,12 @@ class BST:
         - Add comments explaining why this traversal
           produces sorted output in a BST.
         """
-        pass
+        if node is not None:
+            self._inorder_recursive(node.leftChild, values)
+
+            values.append(node.value)
+
+            self._inorder_recursive(node.rightChild, values)
 
 
 def main():
@@ -123,7 +139,7 @@ def main():
     print("Employee ID system")
     id_tree = BST()
 
-    employee_ids = [90, 30, 70, 40, 10, 80, 60]
+    employee_ids = [50, 30, 70, 40, 10, 80, 60]
     for id in employee_ids:
         id_tree.insert(id)
         print(f"Inserted employee with ID: {id}")
@@ -144,6 +160,7 @@ def main():
 
     print("\n=== IN-ORDER TRAVERSAL ===")
     print("TODO: Display and explain traversal results.")
+    print(f"In-order traversal results: {id_tree.inorder()}")
 
     # ===============================
     # TODO (Student): SEARCH TESTS
