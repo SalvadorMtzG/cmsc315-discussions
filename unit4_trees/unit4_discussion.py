@@ -17,14 +17,16 @@ class Node:
         # TODO (Student):
         # Store the node's value and initialize references
         # to the left and right child nodes.
-        pass
+        self.value = value
+        self.leftChild = None
+        self.rightChild = None
 
 
 class BST:
     def __init__(self):
         # TODO (Student):
         # Initialize an empty Binary Search Tree.
-        pass
+        self.root = None
 
     def insert(self, value):
         """
@@ -37,7 +39,7 @@ class BST:
           whether a value is smaller or larger than the
           current node.
         """
-        pass
+        self.root = self._insert_recursive(self.root, value)
 
     def _insert_recursive(self, node, value):
         """
@@ -50,7 +52,15 @@ class BST:
         - Insert larger values into the right subtree.
         - Return the updated node reference.
         """
-        pass
+        if node is None:
+            return Node(value)
+
+        if value < node.value:
+            node.leftChild = self._insert_recursive(node.leftChild, value)
+        elif value > node.value:
+            node.rightChild = self._insert_recursive(node.rightChild, value)
+
+        return node
 
     def search(self, value):
         """
@@ -109,6 +119,15 @@ def main():
     #    and right subtrees.
     # 4. Display the values inserted.
     # 5. Use comments to explain why a BST is efficient at reducing search space for each step.
+
+    print("Employee ID system")
+    id_tree = BST()
+
+    employee_ids = [90, 30, 70, 40, 10, 80, 60]
+    for id in employee_ids:
+        id_tree.insert(id)
+        print(f"Inserted employee with ID: {id}")
+
 
     print("\n=== TREE CONSTRUCTION ===")
     print("TODO: Create a BST and insert multiple values.")
